@@ -388,7 +388,7 @@ ${fragment}`
     }
 
     if (constructorName === "GraphQLObjectType") {
-      if (fragmentType === this.fragmentType.NO_RELATIONS) return null;
+      // if (fragmentType === this.fragmentType.NO_RELATIONS) return null;
       let typeName = null;
       // if(field.name !== undefined)
       typeName =
@@ -457,12 +457,10 @@ ${fragment}`
       }
     }
 
-    console.log(schemaPath)
 
-  
     const getExtension = str => str.split('.').pop()
 
-    if(getExtension(schemaPath) !== 'graphql' && getExtension(schemaPath) !== 'gql'){
+    if (getExtension(schemaPath) !== 'graphql' && getExtension(schemaPath) !== 'gql'){
       throw new Error(`Schema has an extension of '.${getExtension(schemaPath)}'
 - Only '.graphql' schema's are supported by 'generate-fragments'.`)
     }
